@@ -41,11 +41,15 @@ pvm_instance_id=$(ibmcloud_api "GET" "pvm-instances" | jq -r ".pvmInstances[]|se
 # '{"diskType":"tier3","name":"volume-name-1","shareable":true,"size":1}'
 for ((i=1;i<=100;i++));
 do
+   echo "--------------------------------------" >> output.log
    bb="{\"diskType\":\"tier3\",\"name\":\"volume-name-${i}\",\"shareable\":true,\"size\":1}"
+   echo "volume name: volume-name-${i}" >> output.log
 
    volume_id=$(ibmcloud_api "POST" "volumes" $bb | jq -r ".volumeID")
+   echo "volume id: ${volume_id}" >> output.log
 
    sleep 10
+   cur_time=$(date +"%Y-%m-%d %H:%M:%S")
    ibmcloud_api "POST" "/pvm-instances/${pvm_instance_id}/volumes/${volume_id}" | jq
 
    sleep 10
@@ -57,5 +61,6 @@ do
 
    wwn_id=$(ibmcloud_api "GET" "volumes/${volume_id}" | jq -r ".wwn" | tr '[:upper:]' '[:lower:]')
 
-   ls -l "/dev/disk/by-id/wwn-0x${wwn_id}"
+   ls -l "/dev/disk/by-id/wwn-0x${wwn_id}" | tee -a output.log
+   journalctl -k --since "${cur_time}" --no-pager -p warning | tee -a output.log
 done
