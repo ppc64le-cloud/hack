@@ -1,0 +1,16 @@
+{
+  "ignition": {
+    "version": "3.1.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "$6$SALT$7zs.MmuHvHSfpPomJQ7LfY0PJ8j9ZASIFD1lOvNkpJPhjqb.QeODaPhEHKPprcy1nfhw.XuvtJrYN4vOUqNtG1",
+        "sshAuthorizedKeys":[
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmMuiypdqqftqhrQeBTjOhcgyARvylZMLiH+6nCvi5Lv5M7evAnvvG3Hz4rbjbbqoVgSCIdAEb4PuttiCdwE6UyAl0TYAydOVPx7l87BlaucTEqDFbXkQB+yyUmzodllCpWAMUmxwvJB/ntFrC6rP0K0kKxx4SESvozutwM2X5oH3LNHcYI1xgKIMF9VMJLkkM0rLo8Fmj6mWF5KtbU7vS7JJPvLTCRhW5TYrqvhHKuIS6KBtj3GJqvRt+it8AsIb6/RUaji68Mt7W41UrmFSPt8bxJMdE/xKGMcFQjamURPSCHx7z8/pr2/pv2QbQF76FO7lRdPH3f542uAkOOpO1 manjunath@Manjunaths-MacBook-Pro-2.local"
+	]
+      }
+    ]
+  }
+}
