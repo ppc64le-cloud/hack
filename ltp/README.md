@@ -12,5 +12,10 @@ docker push quay.io/powercloud/ltp:latest
 docker run -ti quay.io/powercloud/ltp:latest
 ```
 
-## Openshift
-TODO
+## Openshift via debug pod
+
+```
+# Debug a node as an administrator
+# To use host binaries, run `chroot /host`
+oc debug node/<node_name> --image=quay.io/powercloud/ltp:latest
+```
