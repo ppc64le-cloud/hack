@@ -21,5 +21,6 @@ resource "ibm_pi_instance" "pvminstance" {
     pi_sys_type           = var.system_type
     pi_cloud_instance_id  = var.power_instance_id
     pi_user_data          = base64encode(file("user.ign"))
+    pi_health_status      = "WARNING"
 }
 
