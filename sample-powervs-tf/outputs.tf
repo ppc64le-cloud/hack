@@ -14,7 +14,3 @@ output "health_status" {
 output "addresses" {
     value = ibm_pi_instance.pvminstance.pi_network
 }
-
-output "progress" {
-    value = ibm_pi_instance.pvminstance.pi_progress
-}
